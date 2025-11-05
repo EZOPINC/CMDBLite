@@ -21,6 +21,7 @@ pip install -r requirements.txt
 python manage.py migrate
 python manage.py collectstatic --noinput
 python manage.py runserver 0.0.0.0:8000
+sudo /home/ubuntu/CMDBLite/backend/venv/bin/python manage.py runserver 0.0.0.0:8000
 
 
 check 
@@ -50,4 +51,15 @@ check from server:
 curl ifconfig.me
 ping 8.8.8.8
 curl -v http://<public ip>
+
+https://marcinmitruk.link/posts/how-to-open-ports-80-and-443-on-an-oracle-cloud-instance/
+check state:
+sudo netstat -tuln | grep -E '(:80|:443)'
+
+vi  /etc/iptables/rules.v4
+add the below:
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 443 -j ACCEPT
+
+iptables-restore < /etc/iptables/rules.v4
 

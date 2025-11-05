@@ -1,6 +1,7 @@
 sudo apt update
 sudo apt upgrade -y
 sudo apt install python3 python3-pip python3-venv git docker.io docker-compose ufw lsof git iputils-ping -y
+sudo apt install vim net-tools telnet -y
 sudo usermod -aG docker ubuntu
 
 

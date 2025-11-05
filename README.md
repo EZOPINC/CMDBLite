@@ -1,18 +1,19 @@
 sudo apt update
 sudo apt upgrade -y
-sudo apt install python3 python3-pip python3-venv git docker.io docker-compose -y
-sudo apt install ufw lsof python3 -y
+sudo apt install python3 python3-pip python3-venv git docker.io docker-compose ufw lsof git iputils-ping -y
 sudo usermod -aG docker ubuntu
 
 
-git clone https://github.com/<yourusername>/<your-repo>.git
-cd <your-repo>
+git clone https://github.com/EZOPINC/CMDBLite.git
+cd CMDBLite
 
 create .env file
 
 docker-compose up -d
 
 check manually:
+cd backend
+
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt

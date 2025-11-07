@@ -62,4 +62,24 @@ add the below:
 -A INPUT -p tcp -m state --state NEW -m tcp --dport 443 -j ACCEPT
 
 iptables-restore < /etc/iptables/rules.v4
+===> the app is running now in port 80 
+Lets configure for gunicorn and Nginx and SSL
+
+sudo apt update
+sudo apt install nginx python3-pip python3-venv -y
+
+inside backend:
+pip install gunicorn
+check gunicorn:
+gunicorn --bind 0.0.0.0:8000 cmdb.wsgi
+http://<public-ip>:8000
+
+configure gunicorn as a service
+sudo apt install nano
+sudo nano /etc/systemd/system/cmdb.service
+
+sudo apt install certbot python3-certbot-nginx -y
+sudo certbot --nginx -d 40.233.109.3
+
+
 

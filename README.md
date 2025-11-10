@@ -82,4 +82,12 @@ sudo apt install certbot python3-certbot-nginx -y
 sudo certbot --nginx -d 40.233.109.3
 
 
+Reload and enable service:
+
+sudo systemctl daemon-reload
+sudo systemctl restart cmdb
+sudo systemctl enable cmdb
+sudo systemctl restart nginx
+sudo systemctl enable nginx
+
 
